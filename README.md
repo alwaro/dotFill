@@ -42,3 +42,4 @@ At the moment, there are 2 ways:
 	- Dots are printed at screen one by one like a progress bar.
 
 
+
