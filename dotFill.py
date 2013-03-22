@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-import time
+import time, sys
 
 def dotFillTabs(theString=''):
     """ Function that changes tabs for spaces (4 spaces for each tab) and replace them with dots """
@@ -18,10 +18,11 @@ def dotFillToColProgress(theString='',lastCol=30,showSpeed=0.1):
     wroteChars = len(theString)
     totalDots = lastCol - int(wroteChars)
     for num in xrange(1, totalDots):
-        print '\r'+theString+'.'*num,
+        print '\r' + theString +'.'*int(num) ,
         time.sleep(0.2)
+        sys.stdout.flush()
 
-
+    print '\r'+theString+'.'*int(totalDots)+checkOK
 
 
 # Sample 1
@@ -59,9 +60,9 @@ print dotFillToCol(testCols3,20) + checkOK
 print '\n\nFunction dotFillToColProgress'
 print "_"*20
 
-dotFillToColProgress(testCols1,20) #+ checkOK
-dotFillToColProgress(testCols2,20) #+ checkKO
-dotFillToColProgress(testCols3,20) #+ checkOK
+dotFillToColProgress(testCols1,20) #  + str(checkOK)
+dotFillToColProgress(testCols2,20) #  + str(checkKO)
+dotFillToColProgress(testCols3,20) #  + str(checkOK)
 
 
 
